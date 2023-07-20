@@ -50,4 +50,12 @@ public class ApiKeyTest {
         Assert.assertEquals(teams, key.getTeams());
         Assert.assertEquals(1, key.getTeams().size());
     }
+
+    @Test
+    public void descriptionTest() {
+        ApiKey key = new ApiKey();
+        key.setId(123L);
+        key.setDescription("Lorem ipsum dolor sit amet, consetetur sadipscing elitr");
+        Assert.assertEquals("Lorem ipsum dolor sit amet, consetetur sadipscing elitr", key.getDescription());
+    }
 }

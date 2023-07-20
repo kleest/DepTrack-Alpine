@@ -69,6 +69,12 @@ public class ApiKey implements Serializable, Principal {
     @JsonIgnore
     private List<Team> teams;
 
+    @Persistent
+    @Column(name = "DESCRIPTION")
+    @Size(max = 255)
+    @Pattern(regexp = RegexSequence.Definition.NOT_CONTROL_CHARS, message = "The description must not contain control characters")
+    private String description;
+
     public long getId() {
         return id;
     }
@@ -106,5 +112,12 @@ public class ApiKey implements Serializable, Principal {
         this.teams = teams;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
 
